@@ -21,7 +21,7 @@ app.get("/price", function(req, res) {
 	var type = parseInt(req.param('type'));
 	var price = getPrices(weight, type);
 	var param = { price: price };
-	res.render("price", param);
+	res.render("pages/price", param);
 })
 
 function getPrices(weight, type) {
