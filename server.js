@@ -2,6 +2,7 @@
 
 var express = require("express");
 var app = express();
+const PORT = process.env.PORT || 5000
 app.use(express.static("public"));
 app.set("views", "views");
 app.set("view engine", "ejs");
@@ -50,6 +51,6 @@ function getPrices(weight, type) {
 	return "Your parcel/letter costs $" + cost.toFixed(2);
 }
 
-app.listen(8888, function() {
-	console.log("Up and running on 8888")
+app.listen(PORT, function() {
+	console.log("Up and running")
 })
