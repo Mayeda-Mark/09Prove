@@ -4,7 +4,7 @@ var express = require("express");
 var app = express();
 const PORT = process.env.PORT || 5000
 app.use(express.static("public"));
-app.set("views", "views");
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 //Test
@@ -20,7 +20,7 @@ app.get("/price", function(req, res) {
 	var type = parseInt(req.param('type'));
 	var price = getPrices(weight, type);
 	var param = { price: price };
-	res.render("/pages/price", param);
+	res.render("price", param);
 })
 
 function getPrices(weight, type) {
